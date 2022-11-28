@@ -1,0 +1,9 @@
+replicaCount: 1
+
+region: ap-northeast-1
+clusterName: eks-apne1-prod-terraform-eks-demo-infra
+
+ingressClass: alb
+vpcId: vpc-0c70b2429af6f7d3f
+enableWaf: false
+enableWafv2: false
