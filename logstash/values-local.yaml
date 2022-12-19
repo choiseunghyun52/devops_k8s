@@ -25,10 +25,6 @@ service:
       port: 8080
       protocol: TCP
       targetPort: 8080
-    - name: http
-      port: 30080
-      protocol: TCP
-      targetPort: 30080
 
 logstashConfig:
   logstash.yml: |
