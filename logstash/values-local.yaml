@@ -25,6 +25,10 @@ service:
       port: 8080
       protocol: TCP
       targetPort: 8080
+    - name: http
+      port: 30080
+      protocol: TCP
+      targetPort: 30080
 
 logstashConfig:
   logstash.yml: |
@@ -40,6 +44,13 @@ logstashPipeline:
     }
 
     filter {
+      if [kubernetes] {
+        if [kubernetes][labels][app][value] {
+          mutate { add_field => { "[@metadata][app_name]" => "%{[kubernetes][labels][app][value]}" } }
+        } else {
+          mutate { add_field => { "[@metadata][app_name]" => "%{[kubernetes][labels][app]}" } }
+        }
+      }
     }
 
     output {
