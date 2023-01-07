@@ -1,4 +1,4 @@
-repoURL: 'https://github.com/dev-chulbuji/devops_k8s.git'
+repoURL: 'https://github.com/choiseunghyun52/devops_k8s.git'
 apps:
   - name: prometheus-operator
     project: dev
@@ -40,6 +40,14 @@ apps:
       customValues: true
       values:
         - values-local.yaml
+  - name: metricbeat
+    project: default
+    namespace: elastic
+    source:
+      path: metricbeat
+      customValues: true
+      values:
+        - values.y    aml
   - name: demo
     project: dev
     namespace: default
