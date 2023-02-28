@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vroong-devopstest
+  namespace: vroong-qa1
+spec:
+  rules:
+    - host: null
+      http:
+        paths:
+          - backend:
+              service:
+                name: vroong-devopstest
+                port:
+                  number: 80
+            path: /*
+            pathType: ImplementationSpecific
